@@ -1,0 +1,6 @@
+name: XutheringWavesUID
+desc: 鸣潮 XutheringWavesUID 的 AstrBot 基础适配版，支持帮助、兑换码、日历、卡池、Wiki/攻略/别名与角色面板缓存查询。
+help: 输入 ww帮助 查看 AstrBot 基础版命令说明。
+version: v1.0.0-astrbot-basic
+author: XutheringWavesUID contributors / AstrBot adapter by Cline
+repo: https://github.com/Guoxiang1/XutheringWavesUID
