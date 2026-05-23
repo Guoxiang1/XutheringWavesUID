@@ -80,7 +80,7 @@ class _CollectBot:
     "XutheringWavesUID",
     "XutheringWavesUID contributors / Cline",
     "鸣潮 XutheringWavesUID 的 AstrBot 基础适配版",
-    "1.0.0-astrbot-basic",
+    "1.0.0",
 )
 class XutheringWavesUIDAstrBot(Star):
     def __init__(self, context: Context):
