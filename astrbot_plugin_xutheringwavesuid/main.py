@@ -76,13 +76,7 @@ class _CollectBot:
         await self.send(message)
 
 
-@register(
-    "XutheringWavesUID",
-    "XutheringWavesUID contributors / Cline",
-    "鸣潮 XutheringWavesUID 的 AstrBot 基础适配版",
-    "1.0.0",
-)
-class XutheringWavesUIDAstrBot(Star):
+class XutheringWavesUIDAstrBotBase(Star):
     def __init__(self, context: Context):
         super().__init__(context)
         DATA_ROOT.mkdir(parents=True, exist_ok=True)
@@ -494,3 +488,7 @@ class XutheringWavesUIDAstrBot(Star):
             "data/gsuid_data/XutheringWavesUID/players/<uid>/rawData.json；"
             "登录与刷新面板属于后续完整账号功能。"
         )
+
+
+# 兼容旧导入路径；真正给 AstrBot 扫描注册的类在仓库根目录 main.py。
+XutheringWavesUIDAstrBot = XutheringWavesUIDAstrBotBase
