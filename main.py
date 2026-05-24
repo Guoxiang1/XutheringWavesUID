@@ -13,7 +13,16 @@ PLUGIN_ROOT = Path(__file__).resolve().parent
 if str(PLUGIN_ROOT) not in sys.path:
     sys.path.insert(0, str(PLUGIN_ROOT))
 
-from astrbot_plugin_xutheringwavesuid.main import XutheringWavesUIDAstrBotBase
+try:
+    # 新版实现类名。
+    from astrbot_plugin_xutheringwavesuid.main import (
+        XutheringWavesUIDAstrBotBase as _XutheringWavesUIDImpl,
+    )
+except ImportError:
+    # 兼容安装目录中子模块仍是旧实现类名的情况。
+    from astrbot_plugin_xutheringwavesuid.main import (
+        XutheringWavesUIDAstrBot as _XutheringWavesUIDImpl,
+    )
 
 try:
     from astrbot.api.star import register
@@ -31,12 +40,12 @@ except Exception:
     "鸣潮 XutheringWavesUID 的 AstrBot 基础适配版",
     "1.0.0",
 )
-class XutheringWavesUIDAstrBot(XutheringWavesUIDAstrBotBase):
+class XutheringWavesUIDAstrBot(_XutheringWavesUIDImpl):
     """AstrBot 根入口注册类。
 
     AstrBot v4.24 会扫描根模块中被 register 标记的类；如果只从子模块
     re-export，部分类扫描逻辑拿不到 classes，导致 classes[0] 越界。
     """
     pass
-
+1
 __all__ = ["XutheringWavesUIDAstrBot"]
